@@ -24,7 +24,7 @@ public class StockController {
 	public ResponseEntity<List<Company>> getAllCompanies() throws IOException {
 		List<Company> companies = stockService.getAllCompanies();
 		if(companies.isEmpty())
-			return new ResponseEntity<List<Company>>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<List<Company>>(HttpStatus.NOT_FOUND);
 		return new ResponseEntity<List<Company>>(companies, HttpStatus.OK); // is meant to represent the entire HTTP response. You can control anything that goes into it: status code, headers, and body.
 	}
 	
@@ -33,7 +33,7 @@ public class StockController {
 		Company company = stockService.getCompanyByName(name);
 		if(company == null)
 			return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<Company>(company, HttpStatus.FOUND);
+		return new ResponseEntity<Company>(company, HttpStatus.OK);
 	}
 	
 }
