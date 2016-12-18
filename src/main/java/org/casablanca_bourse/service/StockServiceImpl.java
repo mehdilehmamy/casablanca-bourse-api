@@ -47,7 +47,6 @@ public class StockServiceImpl implements StockService {
 		Document doc = Jsoup.connect("http://www.casablanca-bourse.com/bourseweb/Cours-Valeurs.aspx").timeout(10*1000).get();  // 10 seconds
 		Elements tables = doc.select("table#arial11bleu:contains(Cours de Référence)");
 		Map<String,Integer> titlesMap = getTableHeader();
-		List<Company> companiesList = new ArrayList<Company>();
 		for(Element table:tables) {
 			Elements tableRows = table.select("tr:matches(.+)");
 			for(int i = 1 ; i < tableRows.size() ; i++) {
