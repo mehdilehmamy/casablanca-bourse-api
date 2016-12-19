@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DescriptionController {
 
 	@RequestMapping(value = "/",method = RequestMethod.GET)
-	public ResponseEntity<Object> getRoot(@PathVariable("id") String name) throws IOException {
+	public ResponseEntity<Object> getRoot() {
 		Map<String,String> desc = new HashMap<String, String>();
 		desc.put("companies", "/api/v1/companies");
 		return new ResponseEntity<Object>(desc,HttpStatus.OK);
