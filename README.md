@@ -1,6 +1,10 @@
 # Casablanca Bourse API
 # Documentation
 
+**Test: Root URL**
+----
+  Here is a root url to test the api http://casablanca-bourse-api.herokuapp.com/.
+  
 **Get Companie**
 ----
   Returns json data about a single companie.
