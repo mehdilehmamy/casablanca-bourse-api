@@ -1,4 +1,4 @@
-# casablanca-bourse-api
+# Casablanca Bourse API
 # Documentation
 
 **Get Companie**
