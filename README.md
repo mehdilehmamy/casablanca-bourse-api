@@ -1,5 +1,6 @@
 # casablanca-bourse-api
-# Documentation 
+# Documentation
+
 **Get Companie**
 ----
   Returns json data about a single companie.
@@ -44,6 +45,7 @@
       }
     });
   ```
+
 **Get Companies**
 ----
   Returns json data about all the companies.
