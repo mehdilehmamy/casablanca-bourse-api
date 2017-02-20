@@ -15,9 +15,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StockServiceImpl implements StockService {
-
+	
+	static private String ua = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0";
+	
 	private Map<String,Integer> getTableHeader() throws IOException { // associate an index to titles
-		Document doc = Jsoup.connect("http://www.casablanca-bourse.com/bourseweb/Cours-Valeurs.aspx").timeout(10*1000).get(); // 10 seconds
+		Document doc = Jsoup.connect("http://www.casablanca-bourse.com/bourseweb/Cours-Valeurs.aspx").timeout(10*1000).userAgent(ua).get(); // 10 seconds
 		Elements tables = doc.select("table#arial11bleu:contains(Cours de Référence)");
 		Element tableHead = tables.first().select("tr:contains(Cours de Référence)").first();
 		Elements titles = tableHead.select("td:matches(.+)");
@@ -44,7 +46,7 @@ public class StockServiceImpl implements StockService {
 
 	@Override
 	public Company getCompanyByName(String name) throws IOException {
-		Document doc = Jsoup.connect("http://www.casablanca-bourse.com/bourseweb/Cours-Valeurs.aspx").timeout(10*1000).get();  // 10 seconds
+		Document doc = Jsoup.connect("http://www.casablanca-bourse.com/bourseweb/Cours-Valeurs.aspx").timeout(10*1000).userAgent(ua).get();  // 10 seconds
 		Elements tables = doc.select("table#arial11bleu:contains(Cours de Référence)");
 		Map<String,Integer> titlesMap = getTableHeader();
 		for(Element table:tables) {
@@ -60,7 +62,7 @@ public class StockServiceImpl implements StockService {
 
 	@Override
 	public List<Company> getAllCompanies() throws IOException { // returns all the companies
-		Document doc = Jsoup.connect("http://www.casablanca-bourse.com/bourseweb/Cours-Valeurs.aspx").timeout(10*1000).get();  // 10 seconds
+		Document doc = Jsoup.connect("http://www.casablanca-bourse.com/bourseweb/Cours-Valeurs.aspx").timeout(10*1000).userAgent(ua).get();  // 10 seconds
 		Elements tables = doc.select("table#arial11bleu:contains(Cours de Référence)");
 		Map<String,Integer> titlesMap = getTableHeader();
 		List<Company> companiesList = new ArrayList<Company>();
