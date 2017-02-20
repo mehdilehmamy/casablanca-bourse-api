@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StockServiceImpl implements StockService {
 	
-	static private String ua = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0";
+	static private String ua = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"; //User-Agent header 
 	
 	private Map<String,Integer> getTableHeader() throws IOException { // associate an index to titles
 		Document doc = Jsoup.connect("http://www.casablanca-bourse.com/bourseweb/Cours-Valeurs.aspx").timeout(10*1000).userAgent(ua).get(); // 10 seconds
