@@ -6,7 +6,6 @@
 	<groupId>org.casablanca_bourse</groupId>
 	<artifactId>CasablacaBourseAPI</artifactId>
 	<version>0.0.1</version>
-	<packaging>jar</packaging>
 
 	<name>casablanca-bourse-api</name>
 	<description>Casablanca Bousre API is a stock exchange restful api for the Casablanca Stock Exchange</description>
@@ -45,6 +44,12 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.10.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.heroku.sdk</groupId>
+			<artifactId>heroku-maven-plugin</artifactId>
+			<version>1.2.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -62,4 +67,5 @@
 	</build>
 
 
+	<packaging>war</packaging>
 </project>
