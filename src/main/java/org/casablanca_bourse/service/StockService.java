@@ -10,4 +10,6 @@ public interface StockService {
 	public Company getCompanyByName(String name) throws IOException;
 	
 	public List<Company> getAllCompanies() throws IOException;
+	
+	public void saveCompanyData(Company company);
 }

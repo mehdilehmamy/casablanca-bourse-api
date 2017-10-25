@@ -6,15 +6,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.casablanca_bourse.dao.CompanyDao;
 import org.casablanca_bourse.model.Company;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StockServiceImpl implements StockService {
+	
+	@Autowired
+	private CompanyDao companyDao;
 	
 	static private String ua = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"; //User-Agent header 
 	
@@ -74,6 +79,11 @@ public class StockServiceImpl implements StockService {
 			}
 		}
 		return companiesList;
+	}
+	
+	@Override
+	public void saveCompanyData(Company company) {
+		companyDao.save(company);
 	}
 
 }

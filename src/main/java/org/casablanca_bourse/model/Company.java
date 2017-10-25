@@ -1,7 +1,12 @@
 package org.casablanca_bourse.model;
 
-public class Company {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "companies")
+public class Company {
+	@Indexed
 	private String name;
 	
 	private String status;
